@@ -28,12 +28,12 @@ const Education = (props) => {
                 <td className="hide-sm">{edu.degree}</td>
                 <td>
                   <Moment format="YYYY/MM/DD">{moment.utc(edu.from)}</Moment> -{' '}
-                  {edu.to === null ? (
-                    ' Now'
-                  ) : (
-                    <Moment format="YYYY/MM/DD">{moment.utc(edu.to)}</Moment>
-                  )}
+
+                  {edu.to === null && (' Now')}
+
+                  {edu.to !== null &&  (<Moment format="YYYY/MM/DD">{moment.utc(edu.to)}</Moment>)} 
                 </td>
+                
                 <td>
                   <button
                     onClick={() => deleteEducation(edu._id)}

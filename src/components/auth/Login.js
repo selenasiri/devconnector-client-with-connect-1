@@ -31,6 +31,7 @@ const Login = (props) => {
       <p className="lead">
         <i className="fas fa-user" /> Sign Into Your Account
       </p>
+
       <form className="form" onSubmit={onSubmit}>
         <div className="form-group">
           <input
@@ -54,6 +55,7 @@ const Login = (props) => {
         </div>
         <input type="submit" className="btn btn-primary" value="Login" />
       </form>
+      
       <p className="my-1">
         Don't have an account? <Link to="/register">Sign Up</Link>
       </p>

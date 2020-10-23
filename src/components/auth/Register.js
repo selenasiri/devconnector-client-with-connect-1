@@ -38,6 +38,7 @@ const Register = (props) => {
       <p className="lead">
         <i className="fas fa-user" /> Create Your Account
       </p>
+
       <form className="form" onSubmit={onSubmit}>
         <div className="form-group">
           <input
@@ -81,6 +82,7 @@ const Register = (props) => {
         </div>
         <input type="submit" className="btn btn-primary" value="Register" />
       </form>
+      
       <p className="my-1">
         Already have an account? <Link to="/login">Sign In</Link>
       </p>
