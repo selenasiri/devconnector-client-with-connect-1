@@ -35,6 +35,8 @@ export const register = formData => async dispatch => {
       type: REGISTER_SUCCESS,
       payload: res.data
     });
+
+    dispatch(setAlert('Rregister successfully', 'success'));
     
     dispatch(loadUser());
   } catch (err) {
@@ -62,6 +64,8 @@ export const login = (email, password) => async dispatch => {
       payload: res.data
     });
 
+    dispatch(setAlert('Login successfully', 'success'));
+
     dispatch(loadUser());
   } catch (err) {
     const errors = err.response.data.errors;
@@ -77,4 +81,9 @@ export const login = (email, password) => async dispatch => {
 };
 
 // Logout
-export const logout = () => ({ type: LOGOUT });
+export const logout = () =>  dispatch => {
+  dispatch({ type: LOGOUT });
+
+  dispatch(setAlert('Logout successfully', 'success'));
+};
+
