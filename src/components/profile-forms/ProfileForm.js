@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -184,7 +184,7 @@ const ProfileForm = (props) => {
         </div>
 
         {displaySocialInputs && (
-          <Fragment>
+          <>
             <div className="form-group social-input">
               <i className="fab fa-twitter fa-2x" />
               <input
@@ -239,7 +239,7 @@ const ProfileForm = (props) => {
                 onChange={onChange}
               />
             </div>
-          </Fragment>
+          </>
         )}
 
         <input type="submit" className="btn btn-primary my-1" />
