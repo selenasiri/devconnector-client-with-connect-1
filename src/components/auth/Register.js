@@ -5,7 +5,7 @@ import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 
 const Register = () => {
-  const { isAuthenticated } = useSelector(state => state.auth.isAuthenticated);
+  const { isAuthenticated } = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
@@ -22,6 +22,7 @@ const Register = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    
     if (password !== password2) {
       dispatch(setAlert('Passwords do not match', 'danger'));
     } else {

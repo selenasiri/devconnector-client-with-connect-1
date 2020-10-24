@@ -36,7 +36,7 @@ export const register = formData => async dispatch => {
       payload: res.data
     });
 
-    dispatch(setAlert('Rregister successfully', 'success'));
+    dispatch(setAlert('Register successfully', 'success'));
     
     dispatch(loadUser());
   } catch (err) {

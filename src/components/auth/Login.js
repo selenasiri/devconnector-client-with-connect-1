@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { setAlert } from '../../actions/alert';
 import { login } from '../../actions/auth';
 
-const Login = (props) => {
-  const { login, isAuthenticated } = props;
+const Login = () => {
+  const { login, isAuthenticated } = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+
+
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -13,12 +16,17 @@ const Login = (props) => {
 
   const { email, password } = formData;
 
-  const onChange = e =>
+  const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    login(email, password);
+
+    if ({email, password} === null) {
+      dispatch(setAlert('Please enter a valid email and password', 'danger'));
+    } else {
+      dispatch(login(email, password));
+    }
   };
 
   if (isAuthenticated) {
@@ -63,13 +71,4 @@ const Login = (props) => {
   );
 };
 
-Login.propTypes = {
-  login: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool
-};
-
-const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
-});
-
-export default connect(mapStateToProps, { login })(Login);
+export default Login;
