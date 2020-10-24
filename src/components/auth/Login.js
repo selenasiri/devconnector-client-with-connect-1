@@ -5,7 +5,7 @@ import { setAlert } from '../../actions/alert';
 import { login } from '../../actions/auth';
 
 const Login = () => {
-  const { login, isAuthenticated } = useSelector(state => state.auth);
+  const { isAuthenticated } = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
 
