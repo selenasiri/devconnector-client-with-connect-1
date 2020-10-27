@@ -22,11 +22,7 @@ const Login = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    if ({email, password} === null) {
-      dispatch(setAlert('Please enter a valid email and password', 'danger'));
-    } else {
-      dispatch(login(email, password));
-    }
+    dispatch(login(email, password));
   };
 
   if (isAuthenticated) {
