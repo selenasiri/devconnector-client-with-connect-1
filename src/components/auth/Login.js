@@ -7,8 +7,7 @@ import { login } from '../../actions/auth';
 const Login = () => {
   const { isAuthenticated } = useSelector(state => state.auth);
   const dispatch = useDispatch();
-
-
+  
   const [formData, setFormData] = useState({
     email: '',
     password: ''
