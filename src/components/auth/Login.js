@@ -4,10 +4,12 @@ import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { login } from '../../actions/auth';
 
+// useSelector to change the authentication of the state. It will be authenticated and allow the user to login!
+// useDispatch for the login action
 const Login = () => {
   const { isAuthenticated } = useSelector(state => state.auth);
   const dispatch = useDispatch();
-  
+
   const [formData, setFormData] = useState({
     email: '',
     password: ''
